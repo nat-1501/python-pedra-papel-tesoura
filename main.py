@@ -34,8 +34,23 @@ app_1 = Label(frame_cima, text="Voce", height=1, anchor='center', font=('Ivy 10 
 app_1.place(x=25, y=70)
 app_1_linha = Label(frame_cima, text="", height=10, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
 app_1_linha.place(x=0, y=0)
-
 app_1_pontos = Label(frame_cima, text="0", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
 app_1_pontos.place(x=50, y=20)
+
+app_ = Label(frame_cima, text=":", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
+app_.place(x=125, y=20)
+
+app_2_pontos = Label(frame_cima, text="0", height=1, anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0)
+app_2_pontos.place(x=170, y=20)
+app_2 = Label(frame_cima, text="PC", height=1, anchor='center', font=('Ivy 10 bold'), bg=co1, fg=co0)
+app_2.place(x=205, y=70)
+app_2_linha = Label(frame_cima, text="", height=10, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
+app_2_linha.place(x=255, y=0)
+
+app_linha = Label(frame_cima, text="", width=255, anchor='center', font=('Ivy 1 bold'), bg=co0, fg=co0)
+app_linha.place(x=0, y=95)
+
+app_pc = Label(frame_baixo, text="", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
+app_pc.place(x=190, y=10)
 
 janela.mainloop()
