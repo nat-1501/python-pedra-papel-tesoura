@@ -2,6 +2,9 @@ import tkinter
 from tkinter import *
 from tkinter import ttk 
 
+from PIL import Image, ImageTk
+import random
+
 # cores --------------------------------
 co0 = "#FFFFFF"  # white / branca
 co1 = "#333333"  # black / preta
