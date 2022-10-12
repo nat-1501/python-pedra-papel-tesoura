@@ -53,6 +53,39 @@ app_2_linha.place(x=255, y=0)
 app_linha = Label(frame_cima, text="", width=255, anchor='center', font=('Ivy 1 bold'), bg=co0, fg=co0)
 app_linha.place(x=0, y=95)
 
+global voce
+global pc
+global rodadas
+global pontos_voce
+global pontos_pc
+
+pontos_voce = 0
+pontos_pc = 0
+rodadas = 5
+
+# funcao logica do jogo
+def jogar(i):
+    global rondas
+    global pontos_voce
+    global pontos_pc
+    
+    if rondas >0:
+        print(rodadas)
+        opcoes = ['Pedra', 'Papel', 'Tesoura']
+        pc = random.choice(opcoes)
+        voce = i
+    else:
+        fim_do_jogo()    
+        
+
+# funcao terminar o jogo
+def fim_do_jogo():
+    global rondas
+    global pontos_voce
+    global pontos_pc        
+
+
+
 app_pc = Label(frame_baixo, text="", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
 app_pc.place(x=190, y=10)
 
