@@ -75,14 +75,54 @@ def jogar(i):
         pc = random.choice(opcoes)
         voce = i
         
-        print(voce, pc)
+        # caso for igual
+        if voce == 'Pedra' and pc == 'Pedra':
+            print('empate')
+            app_1_linha['bg'] = co0    
+            app_2_linha['bg'] = co0    
+            app_linha['bg'] = co3
+            
+        elif voce == 'Papel' and pc == 'Papel':
+            print('empate')
+            app_1_linha['bg'] = co0    
+            app_2_linha['bg'] = co0    
+            app_linha['bg'] = co3
+        elif voce == 'Tesoura' and pc == 'Tesoura':
+            print('empate')
+            app_1_linha['bg'] = co0    
+            app_2_linha['bg'] = co0    
+            app_linha['bg'] = co3  
+            
+        # movendo para frente
+        elif voce == 'Pedra' and pc == 'Papel':
+            print('Pc ganhou')
+            app_1_linha['bg'] = co0
+            app_2_linha['bg'] = co4
+            app_linha['bg'] = co0
+            
+            pontos_pc += 10
+            
+        elif voce == 'Tesoura' and pc == 'Papel':
+            print('Voce ganhou')
+            app_1_linha['bg'] = co4
+            app_2_linha['bg'] = co0
+            app_linha['bg'] = co0
+            
+            pontos_voce += 10
+            
+        elif voce == 'Papel' and pc == 'Tesoura':
+            print('Pc ganhou')
+            app_1_linha['bg'] = co0
+            app_2_linha['bg'] = co4
+            app_linha['bg'] = co0
+            
+            pontos_pc += 10              
         
     else:
         fim_do_jogo()  
         
 
 # funcao iniciar o jogo
-
 def iniciar_jogo():
     global icon_1
     global icon_2
@@ -111,7 +151,7 @@ def iniciar_jogo():
     b_icon_3 = Button(frame_baixo,command=lambda: jogar('Tesoura'), width=50, image=icon_3, compound=CENTER, bg=co0, fg=co0, font=('Ivy 10 bold'), anchor=CENTER, relief=FLAT)
     b_icon_3.place(x=170, y=60)
           
-        
+
 
 # funcao terminar o jogo
 def fim_do_jogo():
