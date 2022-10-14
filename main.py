@@ -75,6 +75,9 @@ def jogar(i):
         pc = random.choice(opcoes)
         voce = i
         
+        app_pc['text'] = pc
+        app_pc['fg'] = co1
+        
         # caso for igual
         if voce == 'Pedra' and pc == 'Pedra':
             print('empate')
@@ -116,7 +119,39 @@ def jogar(i):
             app_2_linha['bg'] = co4
             app_linha['bg'] = co0
             
-            pontos_pc += 10              
+            pontos_pc += 10 
+            
+        # movendo para tras 
+        elif voce == 'Tesoura' and pc == 'Papel':
+            print('Voce ganhou')
+            app_1_linha['bg'] = co4
+            app_2_linha['bg'] = co0
+            app_linha['bg'] = co0
+            
+            pontos_voce += 10
+            
+        elif voce == 'Tesoura' and pc == 'Pedra':
+            print('Pc ganhou')
+            app_1_linha['bg'] = co0
+            app_2_linha['bg'] = co4
+            app_linha['bg'] = co0
+            
+            pontos_pc += 10
+            
+        elif voce == 'Papel' and pc == 'Pedra':
+            print('Voce ganhou')
+            app_1_linha['bg'] = co4
+            app_2_linha['bg'] = co0
+            app_linha['bg'] = co0
+            
+            pontos_voce += 10
+            
+        # atualizando a pontuacao
+        app_1_pontos['text'] = pontos_voce
+        app_2_pontos['text'] = pontos_pc
+        
+        # atualizando o numero de rodadas
+        rodadas -=1                     
         
     else:
         fim_do_jogo()  
