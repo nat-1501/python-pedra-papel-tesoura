@@ -154,6 +154,10 @@ def jogar(i):
         rodadas -=1                     
         
     else:
+        app_1_pontos['text'] = pontos_voce
+        app_2_pontos['text'] = pontos_pc
+        
+        # chamando a funcao terminar
         fim_do_jogo()  
         
 
@@ -190,11 +194,47 @@ def iniciar_jogo():
 
 # funcao terminar o jogo
 def fim_do_jogo():
-    global rondas
+    global rodadas
     global pontos_voce
-    global pontos_pc        
-
-
+    global pontos_pc   
+    
+    # reiniciando as variaveis para zero
+    pontos_voce = 0
+    pontos_pc = 0
+    rodadas = 5
+    
+    # destruindo os botoes de opcoes
+    b_icon_1.destroy()
+    b_icon_2.destroy()
+    b_icon_3.destroy()
+    
+    # definindo o vencedor
+    jogador_voce = int(app_1_pontos['text'])
+    jogador_pc = int(app_2_pontos['text'])  
+    
+    if jogador_voce > jogador_pc:
+        app_vencedor = Label(frame_baixo, text="Parabens voce ganhou!!!", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co4)
+        app_vencedor.place(x=5, y=60)
+    elif jogador_voce < jogador_pc:
+        app_vencedor = Label(frame_baixo, text="Infelizmente voce perdeu!!!", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co5)
+        app_vencedor.place(x=5, y=60)
+    else:
+        app_vencedor = Label(frame_baixo, text="Foi um empate!!!", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co1)
+        app_vencedor.place(x=5, y=60)   
+        
+    # jogar denovo
+    
+    def jogar_denovo():
+        app_1_pontos['text'] = '0'
+        app_2_pontos['text'] = '0'
+        app_vencedor.destroy()
+        
+        b_jogar_denovo.destroy()
+        
+        iniciar_jogo()
+        
+    b_jogar_denovo = Button(frame_baixo,command=jogar_denovo, width=30, text='Jogar denovo',  bg=fundo, fg=co0, font=('Ivy 10 bold'), anchor=CENTER, relief=RAISED, overrelief=RIDGE)
+    b_jogar_denovo.place(x=5, y=151)             
 
 app_pc = Label(frame_baixo, text="", height=1, anchor='center', font=('Ivy 10 bold'), bg=co0, fg=co0)
 app_pc.place(x=190, y=10)
